@@ -8,6 +8,11 @@
 [![Translate](https://badges.crowdin.net/win11react/localized.svg)](https://translate.win11react.com/)
 
 This project is a frontend application designed to allows users to automate token swaps, provide liquidity, stake tokens, and withdraw rewards. The goal of the project is to simplify the interaction with decentralized exchanges (DEXs) and pools, offering customizable swap flows and liquidity management, with future AI integration to optimize liquidity strategies.
+<p align="center">
+  <a href="https://gitpoint.co/">
+    <img alt="GitPoint" title="GitPoint" src="https://github.com/user-attachments/assets/838cc122-fbd3-4504-a0ca-1e9b7318fb95" width="800">
+  </a>
+</p>
 
 #### Launch Demo🌈: [wemical.weminal](https://wemical.weminal.com/)
 
