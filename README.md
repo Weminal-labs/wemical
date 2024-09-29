@@ -41,21 +41,7 @@ This is a frontend repository that connects users to the Aptos blockchain. The a
 - **Cross-token Swaps**: Seamless swaps between multiple tokens.
 - **User-friendly Interface**: Intuitive UI that abstracts complex blockchain operations.
 
-## Project Structure
 
-```bash
-├── src
-│   ├── components      # Reusable UI components
-│   ├── pages           # Main app pages (Dashboard, Pools, etc.)
-│   ├── services        # Services to interact with Aptos network and smart contracts
-│   └── utils           # Utility functions and helpers
-├── public              # Static files (index.html, icons, etc.)
-├── package.json        # Project dependencies and scripts
-├── README.md           # Project readme
-└── .env                # Environment variables
-
-
-```
 ## Project Structure
 
 ```bash
