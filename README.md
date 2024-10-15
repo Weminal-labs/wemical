@@ -83,98 +83,10 @@ This is a frontend repository that connects users to the Aptos blockchain. The a
 ```
 
 # Interaction with Smart Contracts
-```typescript
- const handleTransactionSwap = async () => {
-   
-      let prevResult = 0;
-  
-      for (let i = 0; i < inputList.length - 1; i++) {
-        try {
-          prevResult = calculateInitialAmount(i, prevResult);
-  
-          // execute transaction and wait for response
-          const response = await performSwapTransaction(i, prevResult);
-          const committedTransaction = await aptos.waitForTransaction({
-            transactionHash: response.hash,
-          });
-  
-          prevResult = getSwapResult(committedTransaction);
-  
-          // update amount token after transaction
-          const formattedAmount = formatSwapAmount(i + 1, prevResult);
-          dispatch(setAmountInput({ id: inputList[i + 1].id, newAmount: formattedAmount }));
-  
-          // show successful transaction
-          showTransactionAlert(committedTransaction);
-  
-        } catch (error) {
-          console.error(`Transaction ${i + 1} failed:`, error);
-          break;
-        }
-      }
-  
-      console.log("All transactions completed");
-    
-  };
- 
-```
+![image](https://github.com/user-attachments/assets/3b083210-10f0-4ce0-9174-1c93b8c775ee)
 
-```typescript
- const calculateInitialAmount = (index:number, prevResult:number) => {
-    if (index === 0) {
-      return inputList[index].token.name === "USDC" 
-        ? inputList[index].amount * 1000000 
-        : inputList[index].amount * 100000000;
-    }
-    return prevResult;
-  };
-  
-  const performSwapTransaction = async (index:number, prevResult:number) => {
-    return await signAndSubmitTransaction({
-      data: {
-        function: `${MODULE_ADDRESS}::scripts_v3::swap`,
-        typeArguments: [
-          inputList[index].token.type,      // coin to swap
-          inputList[index + 1].token.type,  // coin to swap to
-          "0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12::curves::Uncorrelated", // curve (static)
-        ],
-        functionArguments: [
-          prevResult,  // amount to swap
-          10000,       // minimum amount to swap
-        ],
-      },
-    });
-  };
-  
-  const getSwapResult = (transaction:any) => {
-    const swapEvent = transaction.events[3];
-    return Number(swapEvent.data.x_in) !== 0 
-      ? swapEvent.data.y_out 
-      : swapEvent.data.x_out;
-  };
-  
-  const formatSwapAmount = (index:number, amount:number) => {
-    return inputList[index].token.name === "USDC" 
-      ? amount / 1000000 
-      : amount / 100000000;
-  };
-  
-  const showTransactionAlert = (transaction:any) => {
-    const alertContent = (
-      <>
-        Transaction:{" "}
-        <a
-          href={`https://explorer.aptoslabs.com/txn/${transaction.hash}?network=testnet`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {transaction.hash}
-        </a>
-      </>
-    );
-    setAlert(alertContent, "success");
-  };
-```
+
+
 
 
 # License
