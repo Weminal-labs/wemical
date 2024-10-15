@@ -1,0 +1,3 @@
+[submodule "document-wemical"]
+	path = document-wemical
+	url = https://github.com/lochoang174/document-wemical.git
