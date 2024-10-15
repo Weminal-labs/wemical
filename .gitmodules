@@ -1,3 +1,6 @@
 [submodule "document-wemical"]
 	path = document-wemical
 	url = https://github.com/lochoang174/document-wemical.git
+[submodule "wemical-fe"]
+	path = wemical-fe
+	url = https://github.com/lochoang174/wemical-fe.git
